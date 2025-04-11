@@ -74,11 +74,11 @@ function App() {
 
       <main>
         {unifiedListActors.map((element, index) => <Card key={index} name={element.name}>
-          <li>Nome: {element.name}</li>
-          <li>Anno di nascita: {element.birth_year}</li>
-          <li>Nazionalità: {element.nationality}</li>
-          <li>Biografia: {element.biography}</li>
-          <li>Riconoscimenti: {element.awards}</li>
+          <li><span>Nome: </span><em>{element.name}</em></li>
+          <li><span>Anno di nascita:</span><em>{element.birth_year}</em></li>
+          <li><span>Nazionalità: </span><em>{element.nationality}</em></li>
+          <li><span>Biografia: </span><em>{element.biography}</em></li>
+          <li><span>Riconoscimenti: </span> <em>{element.awards}</em></li>
           <div>
             <img src={element.image} alt={element.name} />
           </div>

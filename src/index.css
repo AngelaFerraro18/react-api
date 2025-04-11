@@ -15,11 +15,26 @@ img {
 h1 {
     padding: 20px;
     margin-bottom: 35px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 3px 1px 3px #000;
+}
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
-    max-width: 1200px;
-    margin: 0 auto;
+    background-image: url('../src/assets/sipario.jpg');
+    background-size: cover;
+}
+
+input {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
 }
 
 /* main */
@@ -27,7 +42,7 @@ body {
 main {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px 20px;
 }
 
 /* section */
@@ -35,15 +50,29 @@ main {
 section {
     margin-bottom: 20px;
     width: calc((100% - 40px)/ 3);
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffebbe;
+    box-shadow: 4px 4px 3px 0px black;
 }
 
 section h2 {
     margin-bottom: 20px;
+    font-size: 20px;
 }
 
 section ul {
     list-style: none;
+    font-size: 15px;
+}
 
+section ul li span {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 section ul div {
@@ -61,5 +90,5 @@ section ul div img {
 }
 
 section ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }

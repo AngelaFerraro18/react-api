@@ -18,7 +18,19 @@ function App() {
 
   return (
     <>
+      <h1>Attrici più famose di Hollywood</h1>
 
+      <section>
+        <h2>Nome Attrice</h2>
+        <ul>
+          <li>Nome:</li>
+          <li>Anno di nascita:</li>
+          <li>Nazionalità</li>
+          <li>Biografia</li>
+          <li>Immagine.jpg</li>
+          <li>Riconoscimenti:</li>
+        </ul>
+      </section>
     </>
   )
 }

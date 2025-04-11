@@ -2,6 +2,8 @@
 import axios from "axios"
 //importo useEffect e useState
 import { useEffect, useState } from "react";
+//importo il componente Card
+import Card from "./components/Card";
 
 
 //salvo in una variabile l'url dell'API che ho scelto (attrici)
@@ -25,17 +27,14 @@ function App() {
     <>
       <h1>Attrici più famose di Hollywood</h1>
 
-      {actresses.map(actress => <section key={actress.id}>
-        <h2>{actress.name}</h2>
-        <ul>
-          <li>Nome: {actress.name}</li>
-          <li>Anno di nascita: {actress.birth_year}</li>
-          <li>Nazionalità: {actress.nationality}</li>
-          <li>Biografia: {actress.biography}</li>
-          <li>Riconoscimenti: {actress.awards}</li>
-          <img src={actress.image} alt={actress.name} />
-        </ul>
-      </section>)}
+      {actresses.map(actress => <Card key={actress.id} name={actress.name}>
+        <li>Nome: {actress.name}</li>
+        <li>Anno di nascita: {actress.birth_year}</li>
+        <li>Nazionalità: {actress.nationality}</li>
+        <li>Biografia: {actress.biography}</li>
+        <li>Riconoscimenti: {actress.awards}</li>
+        <img src={actress.image} alt={actress.name} />
+      </Card>)}
 
     </>
   )

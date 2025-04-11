@@ -33,7 +33,9 @@ function App() {
         <li>Nazionalità: {actress.nationality}</li>
         <li>Biografia: {actress.biography}</li>
         <li>Riconoscimenti: {actress.awards}</li>
-        <img src={actress.image} alt={actress.name} />
+        <div>
+          <img src={actress.image} alt={actress.name} />
+        </div>
       </Card>)}
 
     </>

@@ -26,18 +26,18 @@ function App() {
   return (
     <>
       <h1>Attrici più famose di Hollywood</h1>
-
-      {actresses.map(actress => <Card key={actress.id} name={actress.name}>
-        <li>Nome: {actress.name}</li>
-        <li>Anno di nascita: {actress.birth_year}</li>
-        <li>Nazionalità: {actress.nationality}</li>
-        <li>Biografia: {actress.biography}</li>
-        <li>Riconoscimenti: {actress.awards}</li>
-        <div>
-          <img src={actress.image} alt={actress.name} />
-        </div>
-      </Card>)}
-
+      <main>
+        {actresses.map(actress => <Card key={actress.id} name={actress.name}>
+          <li>Nome: {actress.name}</li>
+          <li>Anno di nascita: {actress.birth_year}</li>
+          <li>Nazionalità: {actress.nationality}</li>
+          <li>Biografia: {actress.biography}</li>
+          <li>Riconoscimenti: {actress.awards}</li>
+          <div>
+            <img src={actress.image} alt={actress.name} />
+          </div>
+        </Card>)}
+      </main>
     </>
   )
 }

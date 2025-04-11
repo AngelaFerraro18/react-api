@@ -14,54 +14,40 @@ const urlActors = 'https://www.freetestapi.com/api/v1/actors';
 
 function App() {
 
-  const [actresses, setActresses] = useState([]);
-  const [actors, setActors] = useState([]);
+  //creo una variabile per la lista di attori completa
+  const [unifiedListActors, setUnifiedListActors] = useState([]);
 
-  function fetchActresses() {
+  function unifiedList() {
     axios.get(urlActresses)
-      .then(response => {
-        console.log(response.data);
-        return setActresses(response.data);
+      .then(responseActresses => {
+        axios.get(urlActors)
+          .then(responseActors => {
+            //salvo in delle variabili il valore delle liste relative alle attrici e agli attori presi dall'oggetto ottenuto in risposta
+            const responseActressesList = responseActresses.data;
+            const responseActorsList = responseActors.data;
+
+            //creo un unico array con le liste degli attori
+            const completeList = [...responseActressesList, ...responseActorsList];
+
+            //vado a settare come array principale, l'array unico creato
+            setUnifiedListActors(completeList);
+          })
       })
   }
 
-  function fetchActors() {
-    axios.get(urlActors)
-      .then(response => {
-        console.log(response.data);
-        return setActors(response.data);
-      })
-  }
-
-  //per scrivere entrambe le funzioni uso la callback di useEffect
-  useEffect(() => {
-    fetchActors(),
-      fetchActresses()
-  }, []);
-
+  useEffect(unifiedList, []);
   return (
     <>
       <h1>Attrici e attori più famosi di Hollywood</h1>
       <main>
-        {actresses.map(actress => <Card key={actress.id} name={actress.name}>
-          <li>Nome: {actress.name}</li>
-          <li>Anno di nascita: {actress.birth_year}</li>
-          <li>Nazionalità: {actress.nationality}</li>
-          <li>Biografia: {actress.biography}</li>
-          <li>Riconoscimenti: {actress.awards}</li>
+        {unifiedListActors.map((element, index) => <Card key={index} name={element.name}>
+          <li>Nome: {element.name}</li>
+          <li>Anno di nascita: {element.birth_year}</li>
+          <li>Nazionalità: {element.nationality}</li>
+          <li>Biografia: {element.biography}</li>
+          <li>Riconoscimenti: {element.awards}</li>
           <div>
-            <img src={actress.image} alt={actress.name} />
-          </div>
-        </Card>)}
-
-        {actors.map(actor => <Card key={actor.id} name={actor.name}>
-          <li>Nome: {actor.name}</li>
-          <li>Anno di nascita: {actor.birth_year}</li>
-          <li>Nazionalità: {actor.nationality}</li>
-          <li>Biografia: {actor.biography}</li>
-          <li>Riconoscimenti: {actor.awards}</li>
-          <div>
-            <img src={actor.image} alt={actor.name} />
+            <img src={element.image} alt={element.name} />
           </div>
         </Card>)}
       </main>
